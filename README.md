@@ -39,5 +39,4 @@ Open `HaluEval_qa.ipynb` and run all cells in order. The notebook:
 5. runs 20 Monte Carlo passes on the test set and reports the metrics below, saving the accuracy–rejection curve data to CSV.
  
 ## License
- 
-<MIT>
+**MIT**
