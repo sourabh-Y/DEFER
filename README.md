@@ -13,7 +13,7 @@ Since the encoder runs only once, uncertainty estimation adds less than 1% to th
  
 | File | Description |
 |---|---|
-| `HaluEval_qa.ipynb` | Full pipeline on the HaluEval QA subset: data loading, feature extraction, training, Monte Carlo inference, metrics, and accuracy–rejection curve |
+| `notebook.ipynb` | Full pipeline on the Wiki-Hades: data loading, feature extraction, training, Monte Carlo inference, metrics, and accuracy–rejection curve |
 | `README.md` | This file |
  
 ## Requirements
@@ -30,11 +30,11 @@ A GPU is recommended for feature extraction. Training the decision stage is ligh
  
 ## Running the notebook
  
-Open `HaluEval_qa.ipynb` and run all cells in order. The notebook:
+Open `notebook.ipynb` and run all cells in order. The notebook:
  
-1. loads the HaluEval QA subset and concatenates each question and answer into one input;
-2. splits the data into 8,000 / 1,000 / 1,000 (train / validation / test) samples with a fixed seed (42);
-3. extracts the final-layer `[CLS]` features with a frozen `bert-base-uncased` encoder;
+1. loads the dataset;
+2. splits the data into train / validation / test samples with a fixed seed (42);
+3. extracts the pooled features with a frozen `DeBERTa-v3-base` encoder;
 4. trains the Bayesian decision stage for five random seeds;
 5. runs 20 Monte Carlo passes on the test set and reports the metrics below, saving the accuracy–rejection curve data to CSV.
  
